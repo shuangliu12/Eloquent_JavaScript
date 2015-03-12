@@ -93,6 +93,28 @@ console.log(nth(arrayToList([10, 20, 30]), 1));
 
 //Deep Comparison
 
+function deepEqual(value1, value2){
+  for (key1 in value1){
+    for (key2 in value2){
+      if (key1 === key2){
+        if (typeof value1[key1] == "object" && typeof value2[key2] == "object"){
+          deepEqual(value1[key1], value2[key2]);
+        }else{
+          if (value1[key1] == value2[key2]){
+            return true;
+          }
+        }
+        return true; 
+      }
+      else{
+        console.log("hit else");
+        return false;
+      }
+    }
+  } 
+  return true;
+}
+
 
 
 
